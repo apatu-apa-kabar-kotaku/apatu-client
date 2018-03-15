@@ -1,3 +1,4 @@
+
 .profile-img {
     display: inline-block;
     width: 150px;
@@ -17,3 +18,11 @@
 }
 
 
+#main-container {
+  margin: 0 10%;
+}
+
+.fixed {
+    position: fixed;
+    /* width: 57px; /* according to #canvas-left */ */
+}
