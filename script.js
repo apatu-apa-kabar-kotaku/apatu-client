@@ -4,6 +4,7 @@ var app = new Vue({
   data: {
     'modalLoginActive': '',
     'modalSignupActive': '',
+    'modalUploadActive': '',
   },
   methods: {
     loginButtonClick: function(){
@@ -17,6 +18,12 @@ var app = new Vue({
     },
     closeSignupModal: function(){
       this.modalLoginActive = '';
+    },
+    uploadButtonClik: function(){
+      this.modalUploadActive = 'is-active';
+    },
+    closeUploadModal: function(){
+      this.modalUploadActive = '';
     }
   },
 })
