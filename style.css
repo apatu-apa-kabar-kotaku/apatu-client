@@ -1,0 +1,19 @@
+.profile-img {
+    display: inline-block;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.image-post{
+     object-fit: cover
+}
+
+.fit-image { 
+    height: 100%; 
+    width: 620px;
+    background-color:white
+}
+
+
