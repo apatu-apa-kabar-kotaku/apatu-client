@@ -16,7 +16,9 @@
     width: 620px;
     background-color:white
 }
-
+.title{
+    margin-top: 30px;
+}
 
 #main-container {
   margin: 30px 10% 0px 10%;
@@ -24,7 +26,7 @@
 
 .fixed {
     position: fixed;
-    /* width: 57px; /* according to #canvas-left */ */
+    /* width: 57px; /* according to #canvas-left */
 }
 
 .fadeIn {
