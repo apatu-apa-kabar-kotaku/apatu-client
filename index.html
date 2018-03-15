@@ -143,6 +143,7 @@
 
     <div id="modal-login" class="modal animated fadeIn" :class="modalLoginActive">
       <div class="modal-background"></div>
+
       <div class="modal-card">
         <header class="modal-card-head">
           <p class="modal-card-title">Login</p>
@@ -151,13 +152,9 @@
         <section class="modal-card-body">
           <p>Connect with your social media</p><br>
           <p class="control">
-            <a class="button is-link" href="https://github.com/jgthms/bulma/archive/0.5.1.zip">
-                <span>Facebook</span>
-              </a>
+            <div class="fb-login-button" data-max-rows="1" data-size="medium" data-button-type="login_with" data-show-faces="false" data-auto-logout-link="true" data-use-continue-as="false" scope="public_profile,email" onlogin="checkLoginState()"></div>
           </p>
-        </div>
-        <div class="fb-login-button" data-max-rows="1" data-size="medium" data-button-type="login_with" data-show-faces="false" data-auto-logout-link="true" data-use-continue-as="false" scope="public_profile,email" onlogin="checkLoginState()"></div>
-
+        <!-- </div> -->
           <hr>
 
           <p>Login with your email address</p><br>
@@ -227,7 +224,7 @@
     </div>
 
   </section>
-  
+
   <script src="./loginFb.js"></script>
 
 
