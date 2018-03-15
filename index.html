@@ -11,14 +11,15 @@
   <link rel="stylesheet"
   href="https://cdn.jsdelivr.net/npm/animate.css@3.5.2/animate.min.css">
   <!-- or -->
-  <link rel="stylesheet"
-  href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+  <!-- <link rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css"> -->
+  <link rel="icon" href="Assets/apatu-logo-icon.png">
 </head>
 
 
 <body>
   <div id="app">
-    <nav class="navbar is-dark has-navbar-fixed-top">
+    <nav class="navbar is-dark is-fixed-top">
       <div class="container">
         <div class="navbar-brand">
           <a class="navbar-item" href="https://bulma.io">
@@ -88,6 +89,11 @@
                       <span>Sign Up</span>
                     </a>
                 </p>
+                <p class="control">
+                  <a class="button is-link"  @click="uploadButtonClik">
+                      <span>Upload</span>
+                    </a>
+                </p>
               </div>
             </div>
           </div>
@@ -96,7 +102,7 @@
     </nav>
 
 
-    <section class="section">
+    <section class="section has-navbar-fixed-top">
       <div id="main-container" class="container">
         <div class="columns">
           <div class="column is-one-quarter">
@@ -183,7 +189,7 @@
     </div>
 
 
-    <div id="modal-signup" class="modal" :class="modalSignupActive">
+    <div id="modal-signup" class="modal animated fadeIn" :class="modalSignupActive">
       <div class="modal-background"></div>
       <div class="modal-card">
         <header class="modal-card-head">
@@ -213,6 +219,38 @@
               <input class="input" type="password" placeholder="Your Password">
             </div>
           </div>
+        </section>
+        <footer class="modal-card-foot">
+          <button @click="closeSignupModal" class="button">Login</button>
+
+          <button @click="closeLoginModal" class="button">Cancel</button>
+        </footer>
+
+      </div>
+    </div>
+
+
+
+    <div id="modal-upload" class="modal animated fadeIn" :class="modalUploadActive">
+      <div class="modal-background"></div>
+      <div class="modal-card">
+        <header class="modal-card-head">
+          <p class="modal-card-title">Login</p>
+          <button class="delete" aria-label="close" @click="closeSignupModal"></button>
+        </header>
+        <section class="modal-card-body">
+          <form class="box" method="post" action="" enctype="multipart/form-data">
+  <div class="box__input">
+    <input class="box__file" type="file" name="files[]" id="file" data-multiple-caption="{count} files selected" multiple />
+    <label for="file"><strong>Choose a file</strong><span class="box__dragndrop"> or drag it here</span>.</label>
+    <button class="box__button" type="submit">Upload</button>
+  </div>
+  <div class="box__uploading">Uploading&hellip;</div>
+  <div class="box__success">Done!</div>
+  <div class="box__error">Error! <span></span>.</div>
+</form>
+
+
         </section>
         <footer class="modal-card-foot">
           <button @click="closeSignupModal" class="button">Login</button>
