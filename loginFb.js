@@ -9,7 +9,7 @@ window.fbAsyncInit = function() {
 //   FB.getLoginStatus(function(response) {
 //     statusChangeCallback(response);
 // });  
-FB.AppEvents.logPageView()
+  FB.AppEvents.logPageView()
     
 };
 
@@ -23,8 +23,22 @@ FB.AppEvents.logPageView()
 
 function statusChangeCallback(response){
     if(response.status === 'connected'){
-      console.log('logged in and authenticated',response);
-      testAPI(response.authResponse.accessToken)
+      console.log('logged in and authenticated',response.authResponse.accessToken);
+      // testAPI(response.authResponse.accessToken)
+      axios({
+        method : 'post',
+        url : 'http://localhost:3000/api/users/signinfb',
+        headers:{
+          fb_token : response.authResponse.accessToken
+        }
+      })
+      .then(function (resLogin) {
+        console.log("resLogin",JSON.stringify(resLogin));
+        localStorage.setItem('token',resLogin.data.data.token)
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
     }else{
       console.log('not authenticated');
     }
@@ -36,28 +50,7 @@ function checkLoginState() {
   });
 }
 
-function testAPI(token){
-  FB.api('/me',{fields:'id,name,email'},function(response){
-    if(response && !response.error){
-      console.log("respon testAPI",response,token)
-      axios.post('http://localhost:3000/fb/signin', {
-        id : response.id,
-        name: response.name,
-        email : response.email,
-        fbToken : token
-      })
-      .then(function (resLogin) {
-        console.log("resLogin",resLogin);
-      })
-      .catch(function (error) {
-        console.log(error);
-      });
-    }else{
-      console.log("error",response.error)
-    }
 
-  })
-}
 
 
 

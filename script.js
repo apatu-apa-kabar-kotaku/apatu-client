@@ -3,6 +3,7 @@ var app = new Vue({
   data: {
     'modalLoginActive': '',
     'modalSignupActive': '',
+    jwtToken : localStorage.getItem('token'),
   },
   methods: {
     loginButtonClick: function(){
@@ -16,6 +17,22 @@ var app = new Vue({
     },
     closeSignupModal: function(){
       this.modalLoginActive = '';
-    }
+    },
+    // checkToken: function(){
+    //   alert(this.jwtToken)
+    // },
+    // checkJwt : function(){
+    //   axios.get('http://localhost:3000/api/users/testjwt', {
+    //     headers:{
+    //       token:this.jwtToken
+    //     }
+    //   })
+    //   .then(function (resJwt) {
+    //     console.log("resJwt",JSON.stringify(resJwt));
+    //   })
+    //   .catch(function (error) {
+    //     console.log(error);
+    //   });
+    // }
   },
 })
