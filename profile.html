@@ -1,20 +1,25 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Apatu!</title>
-    <link rel="stylesheet" href="style.css" type="text/css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.min.css">
-    <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.15/dist/vue.js"></script>
-  </head>
-  <body>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Apatu!</title>
+  <link rel="stylesheet" href="style.css" type="text/css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.min.css">
+  <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.15/vue.js"></script>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+</head>
+
+<body>
+  <div id="user-timeline">
     <nav class="navbar is-dark is-fixed-top">
       <div class="container">
         <div class="navbar-brand">
           <a class="navbar-item" href="https://bulma.io">
-          <img src="Assets/apatu-logo-white.png" alt="Apatu! Apa kabar kotaku!" width="80" >
+            <img src="Assets/apatu-logo-white.png" alt="Apatu! Apa kabar kotaku!" width="80">
           </a>
           <!--  Toggle small screen -->
           <div class="navbar-burger burger" data-target="navbarExampleTransparentExample">
@@ -26,27 +31,27 @@
         <div id="navbarExampleTransparentExample" class="navbar-menu">
           <div class="navbar-start">
             <a class="navbar-item" href="https://bulma.io/">
-            Home
+              Home
             </a>
             <div class="navbar-item has-dropdown is-hoverable">
               <a class="navbar-link" href="/documentation/overview/start/">
-              Kotamu
+                Kotamu
               </a>
               <div class="navbar-dropdown is-boxed">
                 <a class="navbar-item" href="/documentation/overview/start/">
-                Jakarta
+                  Jakarta
                 </a>
                 <a class="navbar-item" href="https://bulma.io/documentation/modifiers/syntax/">
-                Bandung
+                  Bandung
                 </a>
                 <a class="navbar-item" href="https://bulma.io/documentation/columns/basics/">
-                Surabaya
+                  Surabaya
                 </a>
                 <a class="navbar-item" href="https://bulma.io/documentation/layout/container/">
-                Semarang
+                  Semarang
                 </a>
                 <a class="navbar-item" href="https://bulma.io/documentation/form/general/">
-                Medan
+                  Medan
                 </a>
               </div>
             </div>
@@ -61,25 +66,25 @@
                     </div>
                     <div class="control">
                       <a class="button is-info">
-                      Search
+                        Search
                       </a>
                     </div>
                   </div>
                 </div>
                 <p class="control">
                   <a class="bd-tw-button button">
-                  <span>
-                  Login
-                  </span>
+                    <span>
+                      Login
+                    </span>
                   </a>
                 </p>
                 <p class="control">
                   <a class="button is-link" href="https://github.com/jgthms/bulma/archive/0.5.1.zip">
-                  <span>Sign Up</span>
+                    <span>Sign Up</span>
                   </a>
                 </p>
                 <p class="control">
-                  <a class="button is-link"  @click="uploadButtonClik">
+                  <a class="button is-link" @click="uploadButtonClik">
                     <span>Upload</span>
                   </a>
                 </p>
@@ -92,17 +97,25 @@
     <section class="section has-navbar-fixed-top">
       <div id="main-container" class="container">
         <div class="columns">
-            <div class="column is-one-quarter">
+          <div class="column is-one-quarter">
 
-              </div>
+          </div>
           <div class="column is-one-quarter fixed">
-            <a href="#"><span id="sidebar-heading"><strong>Popular</strong></span></a>
+            <a href="#">
+              <span id="sidebar-heading">
+                <strong>Popular</strong>
+              </span>
+            </a>
             <ul>
               <li>Hot</li>
               <li>Trending</li>
               <li>Fresh</li>
             </ul>
-            <a href="#">  <span id="sidebar-heading"><strong>Sections</strong></span></a>
+            <a href="#">
+              <span id="sidebar-heading">
+                <strong>Sections</strong>
+              </span>
+            </a>
             <ul>
               <li>Macet</li>
               <li>Bencana Alam</li>
@@ -113,107 +126,78 @@
             </ul>
           </div>
           <div class="column is-half">
+
             <figure class="image is-128x128">
-              <img class ="profile-img" src="Assets/kucing.jpg">
+              <img class="profile-img" src="Assets/kucing.jpg">
             </figure>
+
             <p class="title is-4">John Smith</p>
             <p class="subtitle is-6">@johnsmith</p>
-            <div id="root">
-              <tabs>
-                <tab name="Overview" :selected="true">
-                    <p class="title is-5 ">jangan nengok</p>              
-                    <div class="card">
-                      <div class="card-image">
-                        <figure>
-                          <img  class=" fit-image image-post" src="Assets/kucing1.jpg" alt="Placeholder image">
-                        </figure>
-                      </div>
-                      <div class="card-content">
-                        <div class="content">
-                          Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                          Phasellus nec iaculis mauris. <a>@bulmaio</a>.
-                          <a href="#">#css</a> <a href="#">#responsive</a>
-                          <br>
-                          <time datetime="2016-1-1">11:09 PM - 1 Jan 2016</time>
-                        </div>
-                        <button class="button is-outlined">
-                            <span class="icon">
-                                <i class="fas fa-arrow-alt-circle-up fa-lg"></i>
-                            </span>
-                        </button>
-                        <button class="button is-outlined">
-                            <span class="icon">
-                                <i class="fas fa-arrow-alt-circle-down fa-lg"></i>
-                            </span>
-                        </button>
-                        <button class="button is-outlined">
-                            <span class="icon">
-                                <i class="fas fa-comment-alt fa-lg"></i>
-                            </span>
-                        </button>
-                        <button class="button is-outlined">
-                            <span class="icon">
-                                <i class="fas fa-share-alt-square fa-lg"></i>
-                            </span>
-                        </button>
-                      </div>
+
+            <button v-on:click="getPost()">Get Post !</button>
+            {{user_posts}}
+            <tabs>
+              <tab name="Overview" :selected="true">
+                <div v-for="post in user_posts">
+                  <h1>this is post</h1>
+                  <div class="card">
+                    <div class="card-image">
+                      <figure>
+                        <img class=" fit-image image-post" :src="post.image" alt="Placeholder image">
+                      </figure>
                     </div>
-                    <p class="title is-5 ">so cuteee</p>              
-            <div class="card">
-              <div class="card-image">
-                <figure>
-                  <img  class=" fit-image image-post" src="Assets/kucing.jpg" alt="Placeholder image">
-                </figure>
-              </div>
-              <div class="card-content">
-                <div class="content">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  Phasellus nec iaculis mauris. <a>@bulmaio</a>.
-                  <a href="#">#css</a> <a href="#">#responsive</a>
-                  <br>
-                  <time datetime="2016-1-1">11:09 PM - 1 Jan 2016</time>
+                    <div class="card-content">
+                      <div class="content">
+                        <h4>{{post.title}}</h4>
+                        <a>{{post.category}}</a>.
+                        <a href="#">#css</a>
+                        <a href="#">#responsive</a>
+                        <br>
+                        <time datetime="2016-1-1">11:09 PM - 1 Jan 2016</time>
+                      </div>
+                      <button class="button is-outlined">
+                        <span class="icon">
+                          <i class="fas fa-arrow-alt-circle-up fa-lg"></i>
+                        </span>
+                      </button>
+                      <button class="button is-outlined">
+                        <span class="icon">
+                          <i class="fas fa-arrow-alt-circle-down fa-lg"></i>
+                        </span>
+                      </button>
+                      <button class="button is-outlined">
+                        <span class="icon">
+                          <i class="fas fa-comment-alt fa-lg"></i>
+                        </span>
+                      </button>
+                      <button class="button is-outlined">
+                        <span class="icon">
+                          <i class="fas fa-share-alt-square fa-lg"></i>
+                        </span>
+                      </button>
+                    </div>
+                  </div>
                 </div>
-                <button class="button is-outlined">
-                    <span class="icon">
-                        <i class="fas fa-arrow-alt-circle-up fa-lg"></i>
-                    </span>
-                </button>
-                <button class="button is-outlined">
-                    <span class="icon">
-                        <i class="fas fa-arrow-alt-circle-down fa-lg"></i>
-                    </span>
-                </button>
-                <button class="button is-outlined">
-                    <span class="icon">
-                        <i class="fas fa-comment-alt fa-lg"></i>
-                    </span>
-                </button>
-                <button class="button is-outlined">
-                    <span class="icon">
-                        <i class="fas fa-share-alt-square fa-lg"></i>
-                    </span>
-                </button>
-              </div>
-            </div>  
-                </tab>
-                <tab name="Post">
-                  <h1>This part is about our culture
-                  </h1>
-                </tab>
-                <tab name="Upvotes">
-                  <h1>This part is about our vision
-                  </h1>
-                </tab>
-                <tab name="Comments">
-                  <h1>This part is about our vision
-                  </h1>
-                </tab>
-              </tabs>
-            </div>
+              </tab>
+              <tab name="Post">
+                <h1>This part is about our culture
+                </h1>
+              </tab>
+              <tab name="Upvotes">
+                <h1>This part is about our vision
+                </h1>
+              </tab>
+              <tab name="Comments">
+                <h1>This part is about our vision
+                </h1>
+              </tab>
+            </tabs>
           </div>
         </div>
       </div>
     </section>
-  </body>
+  </div>
+  <script src="user.timeline.js" charset="utf-8"></script>
+</body>
+
 </html>
-<script src="vue.js"></script>
