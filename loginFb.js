@@ -35,6 +35,8 @@ function statusChangeCallback(response){
       .then(function (resLogin) {
         console.log("resLogin",JSON.stringify(resLogin));
         localStorage.setItem('token',resLogin.data.data.token)
+        localStorage.setItem('userId',resLogin.data.data._id)
+        
       })
       .catch(function (error) {
         console.log(error);
