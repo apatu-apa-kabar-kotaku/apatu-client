@@ -92,7 +92,7 @@
 
 #filedrag
 {
-	display: none;
+	display: block;
 	font-weight: bold;
 	text-align: center;
 	padding: 1em 0;
