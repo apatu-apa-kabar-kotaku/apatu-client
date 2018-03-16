@@ -11,7 +11,7 @@ Vue.component('login', {
         <section class="modal-card-body">
           <p>Connect with your social media</p><br>
           <p class="control">
-            <div class="fb-login-button" data-max-rows="1" data-size="large" data-button-type="login_with" data-use-continue-as="false" data-auto-logout-link="false" scope="public_profile,email" onlogin="checkLoginState()" onclick="logout()"></div>
+            <div class="fb-login-button" data-max-rows="1" data-size="large" data-button-type="login_with" data-use-continue-as="false" data-auto-logout-link="true" scope="public_profile,email" onlogin="checkLoginState()"></div>
           </p>
           <hr>
 
