@@ -112,8 +112,10 @@ Vue.component('hero', {
     </div>
     </section>
   `,
-  data: {
+  data: function() {
+    return {
 
+    }
   },
   methods:{
     uploadButtonClick: function(){

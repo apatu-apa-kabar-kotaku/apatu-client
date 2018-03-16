@@ -38,8 +38,10 @@ Vue.component('post', {
     </div>
   `,
   props:['post'],
-  data:{
+  data: function() {
+    return {
 
+    }
   },
   methods:{
 
