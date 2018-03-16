@@ -36,8 +36,18 @@ var app = new Vue({
     })
   },
   methods: {
-    getFile: function(){
-      this.file = event.target.files[0]
+    fileSelectHandler: function(event){
+      console.log(`ini event: ${JSON.stringify(event)}`);
+      console.log(`ini file: ${event.target.files[0]}`);
+      this.fileDragHover(event);
+      this.file = event.target.files[0] || event.dataTransfer.files[0];
+      console.log(this.file);
+    },
+    fileDragHover: function() {
+      event.stopPropagation();
+      event.preventDefault();
+      console.log('drag hover')
+      event.target.className = (event.type == "dragover" ? "hover" : "");
     },
     upload: function() {
      this.formData.set('avatar', this.file)
@@ -88,33 +98,16 @@ var app = new Vue({
         }
       }.bind(this));
     },
-    initFileDrag: function() {
-      var fileselect = $id("fileselect"),
-  			filedrag = $id("filedrag")
-  			// submitbutton = $id("submitbutton");
-
-  		// file select
-  		fileselect.addEventListener("change", FileSelectHandler, false);
-
-  		// is XHR2 available?
-  		var xhr = new XMLHttpRequest();
-  		if (xhr.upload) {
-
-  			// file drop
-  			filedrag.addEventListener("dragover", FileDragHover, false);
-  			filedrag.addEventListener("dragleave", FileDragHover, false);
-  			filedrag.addEventListener("drop", FileSelectHandler, false);
-  			filedrag.style.display = "block";
-
-  			// remove submit button
-  			// submitbutton.style.display = "none";
-  		}
-    }
   },
   mounted: function() {
     this.$nextTick(function() {
       this.initToTopButton();
       this.initNavbarScrolled();
     });
+
+    document.addEventListener('drop', (e) => {
+      e.preventDefault()
+      console.log('ada drop')
+    })
   }
 })
