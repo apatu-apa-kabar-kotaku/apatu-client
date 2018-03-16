@@ -35,6 +35,7 @@ window.onload = function () {
         username_email:'',
         password : '',
       },
+      filename: '',
       posts:[],
       formData: new FormData(),
       file: null,
@@ -44,6 +45,7 @@ window.onload = function () {
       axios.get('http://localhost:3000/api/posts')
         .then(response => {
           this.posts = response.data.data.map(val => val);
+          console.log('ini user id :'+this.userId)
         })
       .catch(err => {
         console.log("Error : " + err);
@@ -55,7 +57,7 @@ window.onload = function () {
         // console.log(`ini file: ${event.target.files[0]}`);
         this.fileDragHover(event);
         this.file = event.target.files || event.dataTransfer.files;
-        console.log(this.file[0]);
+        this.filename = this.file[0].name;
       },
       fileDragHover: function() {
         event.stopPropagation();
@@ -96,6 +98,7 @@ window.onload = function () {
         })
         .then(function (resSignUp) {
           console.log("resLogin",JSON.stringify(resSignUp));
+          this.closeSignupModal();
         })
         .catch(function (error) {
           console.log(error);

@@ -40,19 +40,19 @@ Vue.component('hero', {
               <div class="navbar-item">
                 <div class="field is-grouped">
 
-              <p class="control">
+              <p class="control" v-if="userid==null">
                 <a id="login-button" @click="loginButtonClick" class="bd-tw-button button is-info is-inverted">
                     <span>
                       Login
                     </span>
                   </a>
               </p>
-              <p class="control">
+              <p class="control" v-if="userid==null">
                 <a class="button is-link" @click="signupButtonClick">
                     <span>Sign Up</span>
                   </a>
               </p>
-              <p class="control">
+              <p class="control" v-if="userid!=null">
                 <a class="button is-link" @click="uploadButtonClick">
                     <span>Upload</span>
                   </a>
@@ -112,6 +112,7 @@ Vue.component('hero', {
     </div>
     </section>
   `,
+  props:['userid'],
   data: function() {
     return {
 
