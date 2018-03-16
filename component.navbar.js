@@ -55,6 +55,11 @@ Vue.component('navbar', {
                     </a>
                 </p>
                 <p class="control"  v-if='userid!=null'>
+                  <a class="button is-link" @click="logOutButtonClick">
+                      <span>Log Out</span>
+                    </a>
+                </p>
+                <p class="control"  v-if='userid!=null'>
                   <a class="button is-link" @click="uploadButtonClick">
                       <span>Upload</span>
                     </a>
@@ -82,5 +87,8 @@ Vue.component('navbar', {
     uploadButtonClick: function() {
       this.$emit('uploadbuttonclick');
     },
+    logOutButtonClick : function(){
+      this.$emit('logoutbuttonclick')
+    }
   },
 })

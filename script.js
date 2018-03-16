@@ -115,11 +115,18 @@ window.onload = function () {
           console.log("resLogin",JSON.stringify(resSignIn));
           localStorage.setItem('token',resSignIn.data.data.token)
           localStorage.setItem('userId',resSignIn.data.data.id)
+          location.reload();
 
         })
         .catch(function (error) {
           console.log(error);
         });
+      },
+      logOutButtonClick : function (){
+        localStorage.removeItem('token');
+        localStorage.removeItem('userId');
+        location.reload();
+        
       },
       initToTopButton: function() {
         $(document).bind('scroll', function() {

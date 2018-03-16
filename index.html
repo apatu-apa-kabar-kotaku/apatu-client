@@ -15,8 +15,8 @@
 
 <body>
   <div id="app">
-    <hero :userid="userId" @loginbuttonclick="loginButtonClick" @signupbuttonclick="signupButtonClick" @uploadbuttonclick="uploadButtonClick"></hero>
-    <navbar :userid="userId" :isvisible="navbarIsVisible" @loginbuttonclick="loginButtonClick" @signupbuttonclick="signupButtonClick" @uploadbuttonclick="uploadButtonClick"></navbar>
+    <hero :userid="userId" @loginbuttonclick="loginButtonClick" @signupbuttonclick="signupButtonClick" @logoutbuttonclick="logOutButtonClick" @uploadbuttonclick="uploadButtonClick"></hero>
+    <navbar :userid="userId" :isvisible="navbarIsVisible" @loginbuttonclick="loginButtonClick" @signupbuttonclick="signupButtonClick" @logoutbuttonclick="logOutButtonClick" @uploadbuttonclick="uploadButtonClick"></navbar>
 
     <section class="section has-navbar-fixed-top">
       <div id="main-container" class="container">

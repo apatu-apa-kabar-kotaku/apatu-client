@@ -52,7 +52,14 @@ function checkLoginState() {
   });
 }
 
-
+function logout() {
+  FB.logout(function(response) {
+    // user is now logged out
+    localStorage.removeItem('token');
+    localStorage.removeItem('userId');
+    console.log('user log out fb')
+  });
+}
 
 
 
