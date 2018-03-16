@@ -34,7 +34,7 @@ var app = new Vue({
     userLogin : {
       username_email:'',
       password : '',
-    }
+    },
     posts:[],
     formData: new FormData(),
     file: null,
@@ -113,12 +113,12 @@ var app = new Vue({
         console.log("resLogin",JSON.stringify(resSignIn));
         localStorage.setItem('token',resSignIn.data.data.token)
         localStorage.setItem('userId',resSignIn.data.data.id)
-        
+
       })
       .catch(function (error) {
         console.log(error);
       });
-    }
+    },
     initToTopButton: function() {
       $(document).bind('scroll', function() {
         var backToTopButton = $('.goTop');
