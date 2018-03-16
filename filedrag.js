@@ -26,20 +26,28 @@
 
 		// cancel event and hover styling
 		FileDragHover(e);
+		// console.log('ini e target '+e.target.files)
+		// console.log('ini e target '+(e.dataTransfer.files))
 
 		// fetch FileList object
 		var files = e.target.files || e.dataTransfer.files;
 
+		console.log('ini files: '+(files[0]));
+
 		// process all File objects
-		for (var i = 0, f; f = files[i]; i++) {
-			ParseFile(f);
-		}
+		// for (var i = 0, f; f = files[i]; i++) {
+		// 	ParseFile(f);
+		// }
+
+		ParseFile(files[0]);
+
 
 	}
 
 
 	// output file information
 	function ParseFile(file) {
+		console.log(file)
 
 		Output(
 			"<p>File information: <strong>" + file.name +
@@ -55,8 +63,8 @@
 	function Init() {
 
 		var fileselect = $id("fileselect"),
-			filedrag = $id("filedrag"),
-			submitbutton = $id("submitbutton");
+			filedrag = $id("filedrag")
+			// submitbutton = $id("submitbutton");
 
 		// file select
 		fileselect.addEventListener("change", FileSelectHandler, false);
@@ -72,7 +80,7 @@
 			filedrag.style.display = "block";
 
 			// remove submit button
-			submitbutton.style.display = "none";
+			// submitbutton.style.display = "none";
 		}
 
 	}

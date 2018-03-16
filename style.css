@@ -1,3 +1,57 @@
+#sidebar {
+  /* background-coxlor: hsl(0, 0%, 96%); */
+  height: 100%;
+  padding:4%;
+}
+
+#dropdown-hero {
+  color:hsl(204, 86%, 53%);
+}
+
+#dropdown-item-hero:hover {
+  color:white;
+  background-color: hsl(204, 86%, 53%);
+}
+
+
+.hero {
+  background-image: url('Assets/city-her4.png') ;
+  /* background-size: cover;
+  z-index: 99; */
+}
+
+.title {
+  margin-top: 0px !important;
+  font-size: 50px !important;
+}
+
+.goTop {
+  border-radius: 5px;
+  background-color: hsl(204, 86%, 53%);
+  position: fixed;
+  width: 45px;
+  height: 45px;
+  display: block;
+  right: 100px;
+  bottom: 60px;
+  border: none;
+  opacity: 0;
+  z-index: -1;
+}
+
+.goTop .fa {
+    color: white !important;
+    font-size: 22px;
+}
+
+
+
+.isVisible {
+  opacity: 1;
+  z-index: 4;
+  transition: all .4s ease-in;
+}
+
 
 .profile-img {
     display: inline-block;
@@ -16,7 +70,9 @@
     width: 620px;
     background-color:white
 }
-
+.title{
+    margin-top: 30px;
+}
 
 #main-container {
   margin: 30px 10% 0px 10%;
@@ -24,7 +80,7 @@
 
 .fixed {
     position: fixed;
-    /* width: 57px; /* according to #canvas-left */ */
+    /* width: 57px; /* according to #canvas-left */
 }
 
 .fadeIn {
