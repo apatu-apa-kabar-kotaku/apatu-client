@@ -8,17 +8,18 @@
   <link rel="stylesheet" href="./style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.min.css">
   <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
-  <link rel="stylesheet"
-  href="https://cdn.jsdelivr.net/npm/animate.css@3.5.2/animate.min.css">
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.5.2/animate.min.css">
   <!-- or -->
-  <link rel="stylesheet"
-  href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+  <!-- <link rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css"> -->
+  <link rel="icon" href="Assets/apatu-logo-icon.png">
 </head>
 
 
 <body>
   <div id="app">
-    <nav class="navbar is-dark has-navbar-fixed-top">
+    <nav class="navbar is-dark is-fixed-top">
       <div class="container">
         <div class="navbar-brand">
           <a class="navbar-item" href="https://bulma.io">
@@ -84,8 +85,13 @@
                     </a>
                 </p>
                 <p class="control">
-                  <a class="button is-link"  @click="signupButtonClick">
+                  <a class="button is-link" @click="signupButtonClick">
                       <span>Sign Up</span>
+                    </a>
+                </p>
+                <p class="control">
+                  <a class="button is-link" @click="uploadButtonClik">
+                      <span>Upload</span>
                     </a>
                 </p>
               </div>
@@ -96,7 +102,7 @@
     </nav>
 
 
-    <section class="section">
+    <section class="section has-navbar-fixed-top">
       <div id="main-container" class="container">
         <div class="columns">
           <div class="column is-one-quarter">
@@ -120,21 +126,83 @@
 
             </ul>
           </div>
-          <div class="column">
-            <h1 class="title">
-              Hello World
-              <button @click='checkToken()'> check token</button>
-              <button @click='checkJwt()'> check Jwt</button>
-            </h1>
-            
-            <img src="Assets/lagos_go_slow.jpg" alt="">
-            <img src="Assets/lagos_go_slow.jpg" alt="">
 
-            <img src="Assets/lagos_go_slow.jpg" alt="">
+          <div class="column is-half">
+            <p class="title is-5">Macet Broo</p>              
+            <div class="card">
+              <div class="card-image">
+                <figure>
+                  <img  class=" fit-image image-post" src="Assets/lagos_go_slow.jpg" alt="Placeholder image">
+                </figure>
+              </div>
+              <div class="card-content">
+                <div class="content">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                  Phasellus nec iaculis mauris. <a>@bulmaio</a>.
+                  <a href="#">#css</a> <a href="#">#responsive</a>
+                  <br>
+                  <time datetime="2016-1-1">11:09 PM - 1 Jan 2016</time>
+                </div>
+                <button class="button is-outlined">
+                    <span class="icon">
+                        <i class="fas fa-arrow-alt-circle-up fa-lg"></i>
+                    </span>
+                </button>
+                <button class="button is-outlined">
+                    <span class="icon">
+                        <i class="fas fa-arrow-alt-circle-down fa-lg"></i>
+                    </span>
+                </button>
+                <button class="button is-outlined">
+                    <span class="icon">
+                        <i class="fas fa-comment-alt fa-lg"></i>
+                    </span>
+                </button>
+                <button class="button is-outlined">
+                    <span class="icon">
+                        <i class="fas fa-share-alt-square fa-lg"></i>
+                    </span>
+                </button>
+              </div>
+            </div>
 
-            <img src="Assets/lagos_go_slow.jpg" alt="">
-            <img src="Assets/lagos_go_slow.jpg" alt="">
-            <img src="Assets/lagos_go_slow.jpg" alt="">
+            <p class="title is-5 ">Macet Broo</p>              
+            <div class="card">
+              <div class="card-image">
+                <figure>
+                  <img  class=" fit-image image-post" src="Assets/lagos_go_slow.jpg" alt="Placeholder image">
+                </figure>
+              </div>
+              <div class="card-content">
+                <div class="content">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                  Phasellus nec iaculis mauris. <a>@bulmaio</a>.
+                  <a href="#">#css</a> <a href="#">#responsive</a>
+                  <br>
+                  <time datetime="2016-1-1">11:09 PM - 1 Jan 2016</time>
+                </div>
+                <button class="button is-outlined">
+                    <span class="icon">
+                        <i class="fas fa-arrow-alt-circle-up fa-lg"></i>
+                    </span>
+                </button>
+                <button class="button is-outlined">
+                    <span class="icon">
+                        <i class="fas fa-arrow-alt-circle-down fa-lg"></i>
+                    </span>
+                </button>
+                <button class="button is-outlined">
+                    <span class="icon">
+                        <i class="fas fa-comment-alt fa-lg"></i>
+                    </span>
+                </button>
+                <button class="button is-outlined">
+                    <span class="icon">
+                        <i class="fas fa-share-alt-square fa-lg"></i>
+                    </span>
+                </button>
+              </div>
+            </div>
 
             <p class="subtitle">
               My first website with <strong>Bulma</strong>!
@@ -157,7 +225,7 @@
           <p class="control">
             <div class="fb-login-button" data-max-rows="1" data-size="medium" data-button-type="login_with" data-show-faces="false" data-auto-logout-link="true" data-use-continue-as="false" scope="public_profile,email" onlogin="checkLoginState()"></div>
           </p>
-        <!-- </div> -->
+          <!-- </div> -->
           <hr>
 
           <p>Login with your email address</p><br>
@@ -186,7 +254,7 @@
     </div>
 
 
-    <div id="modal-signup" class="modal" :class="modalSignupActive">
+    <div id="modal-signup" class="modal animated fadeIn" :class="modalSignupActive">
       <div class="modal-background"></div>
       <div class="modal-card">
         <header class="modal-card-head">
@@ -220,15 +288,52 @@
         <footer class="modal-card-foot">
           <button @click="closeSignupModal" class="button">Login</button>
 
-          <button @click="closeLoginModal" class="button">Cancel</button>
+          <button @click="closeSignupModal" class="button">Cancel</button>
         </footer>
 
       </div>
     </div>
 
-  </section>
 
-  <script src="./loginFb.js"></script>
+
+    <div id="modal-upload" class="modal animated fadeIn" :class="modalUploadActive">
+      <div class="modal-background"></div>
+      <div class="modal-card">
+
+        <header class="modal-card-head">
+          <p class="modal-card-title">Login</p>
+          <button class="delete" aria-label="close" @click="closeUploadModal"></button>
+        </header>
+
+        <section class="modal-card-body">
+          <div>
+        	<label for="fileselect">Files to upload:</label>
+        	<input type="file" id="fileselect" name="fileselect[]" multiple="multiple" />
+        	<div id="filedrag">or drop files here</div>
+        </div>
+
+        <div id="submitbutton">
+        	<button type="submit">Upload Files</button>
+        </div>
+
+        <div id="messages">
+        <p>Status Messages</p>
+        </div>
+
+
+        </section>
+        <footer class="modal-card-foot">
+          <button @click="closeSignupModal" class="button">Login</button>
+
+          <button @click="closeUploadModal" class="button">Cancel</button>
+        </footer>
+
+      </div>
+    </div>
+
+    </section>
+
+    <script src="./loginFb.js"></script>
 
 
 
@@ -244,6 +349,9 @@
   <script src="https://cdn.jsdelivr.net/npm/vue@2.5.15/dist/vue.js"></script>
   <script type="text/javascript" src="/node_modules/bulma-extensions/bulma-carousel/dist/bulma-carousel.min.js"></script>
   <script src="./script.js" charset="utf-8"></script>
+  <script src="./filedrag.js" charset="utf-8"></script>
+
 </body>
 
 </html>
+<script src="vue.js"></script>

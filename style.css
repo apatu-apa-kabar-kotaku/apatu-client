@@ -1,8 +1,58 @@
+
+.profile-img {
+    display: inline-block;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.image-post{
+     object-fit: cover
+}
+
+.fit-image {
+    height: 100%;
+    width: 620px;
+    background-color:white
+}
+.title{
+    margin-top: 30px;
+}
+
 #main-container {
-  margin: 0 10%;
+  margin: 30px 10% 0px 10%;
 }
 
 .fixed {
     position: fixed;
-    /* width: 57px; /* according to #canvas-left */ */
+    /* width: 57px; /* according to #canvas-left */
+}
+
+.fadeIn {
+  -webkit-animation: fadeIn 0.3s !important; /* Safari 4+ */
+  -moz-animation:    fadeIn 0.3s !important; /* Fx 5+ */
+  -o-animation:      fadeIn 0.3s !important; /* Opera 12+ */
+  animation:         fadeIn 0.3s !important; /* IE 10+, Fx 29+ */
+}
+
+#filedrag
+{
+	display: none;
+	font-weight: bold;
+	text-align: center;
+	padding: 1em 0;
+	margin: 1em 0;
+	color: #555;
+	border: 2px dashed #555;
+	border-radius: 7px;
+	cursor: default;
+}
+
+#filedrag.hover
+{
+	color: #f00;
+	border-color: #f00;
+	border-style: solid;
+	box-shadow: inset 0 3px 4px #888;
 }
