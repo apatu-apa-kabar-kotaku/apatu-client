@@ -19,6 +19,7 @@ var app = new Vue({
   data: {
     'modalLoginActive': '',
     'modalSignupActive': '',
+    jwtToken : localStorage.getItem('token'),
     'modalUploadActive': '',
     posts:[],
     formData: new FormData(),
