@@ -36,6 +36,7 @@ function statusChangeCallback(response){
         console.log("resLogin",JSON.stringify(resLogin));
         localStorage.setItem('token',resLogin.data.data.token)
         localStorage.setItem('userId',resLogin.data.data._id)
+        location.reload();
         
       })
       .catch(function (error) {
@@ -52,7 +53,14 @@ function checkLoginState() {
   });
 }
 
-
+function logout() {
+  FB.logout(function(response) {
+    // user is now logged out
+    localStorage.removeItem('token');
+    localStorage.removeItem('userId');
+    console.log('user log out fb')
+  });
+}
 
 
 

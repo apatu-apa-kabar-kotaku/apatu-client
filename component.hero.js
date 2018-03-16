@@ -52,6 +52,11 @@ Vue.component('hero', {
                     <span>Sign Up</span>
                   </a>
               </p>
+              <p class="control"  v-if='userid!=null'>
+                  <a class="button is-link" @click="logOutButtonClick">
+                      <span>Log Out</span>
+                    </a>
+                </p>
               <p class="control" v-if="userid!=null">
                 <a class="button is-link" @click="uploadButtonClick">
                     <span>Upload</span>
@@ -127,6 +132,9 @@ Vue.component('hero', {
     },
     loginButtonClick: function(){
       this.$emit('loginbuttonclick');
+    },
+    logOutButtonClick : function(){
+      this.$emit('logoutbuttonclick')
     }
   }
 })
