@@ -24,7 +24,6 @@ var app = new Vue({
     posts:[],
     formData: new FormData(),
     file: null,
-    isVisible: false,
     navbarIsVisible: false,
   },
   created:function(){
@@ -58,7 +57,7 @@ var app = new Vue({
     closeSignupModal: function(){
       this.modalLoginActive = '';
     },
-    uploadButtonClik: function(){
+    uploadButtonClick: function(){
       this.modalUploadActive = 'is-active';
     },
     closeUploadModal: function(){
@@ -69,10 +68,8 @@ var app = new Vue({
         var backToTopButton = $('.goTop');
         if ($(document).scrollTop() > 250) {
           backToTopButton.addClass('isVisible');
-          this.isVisible = true;
         } else {
           backToTopButton.removeClass('isVisible');
-          this.isVisible = false;
         }
       }.bind(this));
     },
@@ -91,6 +88,28 @@ var app = new Vue({
         }
       }.bind(this));
     },
+    initFileDrag: function() {
+      var fileselect = $id("fileselect"),
+  			filedrag = $id("filedrag")
+  			// submitbutton = $id("submitbutton");
+
+  		// file select
+  		fileselect.addEventListener("change", FileSelectHandler, false);
+
+  		// is XHR2 available?
+  		var xhr = new XMLHttpRequest();
+  		if (xhr.upload) {
+
+  			// file drop
+  			filedrag.addEventListener("dragover", FileDragHover, false);
+  			filedrag.addEventListener("dragleave", FileDragHover, false);
+  			filedrag.addEventListener("drop", FileSelectHandler, false);
+  			filedrag.style.display = "block";
+
+  			// remove submit button
+  			// submitbutton.style.display = "none";
+  		}
+    }
   },
   mounted: function() {
     this.$nextTick(function() {
