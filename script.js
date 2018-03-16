@@ -1,18 +1,3 @@
-// $(document).ready(function(){
-//  var scrollTop = 0;
-//  $(window).scroll(function(){
-//   scrollTop = $(window).scrollTop();
-//
-//   if (scrollTop >= 100) {
-//    $('#global-nav').show();
-//
-//   } else if (scrollTop < 100) {
-//    $('#global-nav').hide();
-//   }
-//
-//  });
-//
-// });
 window.onload = function () {
   var app = new Vue({
     el: '#app',
@@ -35,16 +20,20 @@ window.onload = function () {
         username_email:'',
         password : '',
       },
-      filename: '',
+      posted:{
+        filename: '',
+        caption: ''
+      },
       posts:[],
       formData: new FormData(),
       file: null,
       navbarIsVisible: false,
     },
     created:function(){
+      localStorage.setItem('userId','5aab6aa2d94dc58a37203172')
       axios.get('http://localhost:3000/api/posts')
         .then(response => {
-          this.posts = response.data.data.map(val => val);
+          this.posts = response.data.data.map(val => val).reverse();
           console.log('ini user id :'+this.userId)
         })
       .catch(err => {
@@ -53,22 +42,20 @@ window.onload = function () {
     },
     methods: {
       fileSelectHandler: function(event){
-        console.log(`ini event: ${JSON.stringify(event)}`);
         // console.log(`ini file: ${event.target.files[0]}`);
         this.fileDragHover(event);
-        this.file = event.target.files || event.dataTransfer.files;
-        this.filename = this.file[0].name;
+        this.file =  event.target.files || event.dataTransfer.files;
+        console.log(`ini event: ${(this.file[0])} - ${(this.formData)}`);
+        console.log(this.file);
+        console.log(this.formData);
+
+
+        this.posted.filename = this.file[0].name;
       },
       fileDragHover: function() {
         event.stopPropagation();
         event.preventDefault();
         event.target.className = (event.type == "dragover" ? "hover" : "");
-      },
-      upload: function() {
-       this.formData.set('avatar', this.file)
-       axios.post('/upload-gcs', this.formData)
-        .then()
-        .catch()
       },
       loginButtonClick: function(){
         this.modalLoginActive = 'is-active';
@@ -93,12 +80,12 @@ window.onload = function () {
         // alert(this.objUser)
         axios({
           method : 'post',
-          url : 'http://localhost:3000/api/users/signup',
+          url : 'http://server.purge-works.com/api/users/signup',
           data:this.objUser
         })
         .then(function (resSignUp) {
           console.log("resLogin",JSON.stringify(resSignUp));
-          this.closeSignupModal();
+          // this.closeSignupModal();
         })
         .catch(function (error) {
           console.log(error);
@@ -145,6 +132,29 @@ window.onload = function () {
             this.navbarIsVisible = false;
           }
         }.bind(this));
+      },
+      upload: function() {
+        this.formData.set('post', this.file[0])
+        this.formData.set('title', this.posted.caption);
+        this.formData.set('user_id', this.userId)
+        axios({
+            method: 'post',
+            url: 'http://localhost:3000/api/posts/upload',
+            data: this.formData,
+            config: { headers: {'Content-Type': 'multipart/form-data' }}
+        })
+            .then(function (response) {
+              // window.location.href="index.html"
+              // this.modalUploadActive = ''
+              location.reload();
+              console.log("masuk")
+            })
+            .catch(function (response) {
+                //handle error
+                console.log(response);
+            });
+
+
       },
     },
     mounted: function() {

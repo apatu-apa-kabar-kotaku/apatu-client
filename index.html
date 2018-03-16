@@ -71,17 +71,17 @@
 
         <section class="modal-card-body">
           <div>
-          <!-- <label for="fileselect">Files to upload:</label>
-          <input @change="fileSelectHandler" type="file" id="fileselect" name="fileselect[]" multiple="multiple" /> -->
+          <label for="fileselect">Files to upload:</label>
+          <input @change="fileSelectHandler" type="file" name='post' id="fileselect" />
 
-          <div id="filedrag" @dragover="fileDragHover" @dragleave="fileDragHover" >Drop image here</div>
+          <div id="filedrag" @dragover="fileDragHover" @dragleave="fileDragHover" name='post' >Drop image here</div>
           <div id="file-name">
-            <p>File name: {{filename}}</p>
+            <p>File name: {{posted.filename}}</p>
           </div>
           <div class="field">
             <label class="label">Caption:</label>
             <div class="control">
-              <input class="input" type="text" placeholder="Your caption here.." >
+              <input v-model="posted.caption" class="input" type="text" placeholder="Your caption here.." >
             </div>
           </div>
         </div>
@@ -90,12 +90,9 @@
           <button type="submit">Upload Files</button>
         </div> -->
 
-
-
-
         </section>
         <footer class="modal-card-foot">
-          <button @click="closeUploadModal" class="button is-info">Submit</button>
+          <button @click="upload" class="button is-info">Submit</button>
 
           <button @click="closeUploadModal" class="button is-danger">Cancel</button>
         </footer>
