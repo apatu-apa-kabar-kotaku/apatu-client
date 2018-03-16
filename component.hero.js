@@ -52,11 +52,6 @@ Vue.component('hero', {
                     <span>Sign Up</span>
                   </a>
               </p>
-              <p class="control"  v-if='userid!=null'>
-                  <a class="button is-link" @click="logOutButtonClick">
-                      <span>Log Out</span>
-                    </a>
-                </p>
               <p class="control" v-if="userid!=null">
                 <a class="button is-link" @click="uploadButtonClick">
                     <span>Upload</span>
@@ -83,10 +78,10 @@ Vue.component('hero', {
             </div>
             <div class="field has-addons">
               <div class="control is-expanded">
-                <input class="input" type="text" placeholder="Find a repository">
+                <input v-model="inputsearch" class="input" type="text" placeholder="Find reports..">
               </div>
               <div class="control">
-                <a class="button is-info">
+                <a class="button is-info" @click="searchTitle">
                   Search
                 </a>
               </div>
@@ -120,10 +115,13 @@ Vue.component('hero', {
   props:['userid'],
   data: function() {
     return {
-
+      inputsearch : ''
     }
   },
   methods:{
+    searchTitle: function(){
+      this.$emit('searchtitle', {inputsearch: this.inputsearch});
+    },
     uploadButtonClick: function(){
       this.$emit('uploadbuttonclick');
     },
@@ -132,9 +130,6 @@ Vue.component('hero', {
     },
     loginButtonClick: function(){
       this.$emit('loginbuttonclick');
-    },
-    logOutButtonClick : function(){
-      this.$emit('logoutbuttonclick')
     }
   }
 })

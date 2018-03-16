@@ -30,8 +30,8 @@ window.onload = function () {
       navbarIsVisible: false,
     },
     created:function(){
-      localStorage.setItem('userId','5aab6aa2d94dc58a37203172')
-      axios.get('http://localhost:3000/api/posts')
+      // localStorage.setItem('userId','5aab6aa2d94dc58a37203172')
+      axios.get('http://server.purge-works.com/api/posts')
         .then(response => {
           this.posts = response.data.data.map(val => val).reverse();
           console.log('ini user id :'+this.userId)
@@ -41,6 +41,23 @@ window.onload = function () {
       })
     },
     methods: {
+      searchTitle:function(payload){
+        axios({
+          method: 'post',
+          url: 'http://server.purge-works.com/api/posts/search',
+          data: {
+            keyword: payload
+          }
+        })
+          .then(response => {
+            alert(JSON.stringify(response))
+            this.posts = response.data.data.map(val => val).reverse();
+            console.log('ini user id :'+this.userId)
+          })
+        .catch(err => {
+          console.log("Error : " + err);
+        })
+      },
       fileSelectHandler: function(event){
         // console.log(`ini file: ${event.target.files[0]}`);
         this.fileDragHover(event);
@@ -95,7 +112,7 @@ window.onload = function () {
         console.log("login user===",this.userLogin)
         axios({
           method : 'post',
-          url : 'http://localhost:3000/api/users/signin',
+          url : 'http://server.purge-works.com/api/users/signin',
           data:this.userLogin
         })
         .then(function (resSignIn) {
@@ -113,7 +130,7 @@ window.onload = function () {
         localStorage.removeItem('token');
         localStorage.removeItem('userId');
         location.reload();
-        
+
       },
       initToTopButton: function() {
         $(document).bind('scroll', function() {
@@ -146,7 +163,7 @@ window.onload = function () {
         this.formData.set('user_id', this.userId)
         axios({
             method: 'post',
-            url: 'http://localhost:3000/api/posts/upload',
+            url: 'http://server.purge-works.com/api/posts/upload',
             data: this.formData,
             config: { headers: {'Content-Type': 'multipart/form-data' }}
         })

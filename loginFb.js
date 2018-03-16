@@ -5,12 +5,12 @@ window.fbAsyncInit = function() {
     xfbml      : true,
     version    : 'v2.8'
   });
-    
+
 //   FB.getLoginStatus(function(response) {
 //     statusChangeCallback(response);
-// });  
+// });
   FB.AppEvents.logPageView()
-    
+
 };
 
 (function(d, s, id){
@@ -27,7 +27,7 @@ function statusChangeCallback(response){
       // testAPI(response.authResponse.accessToken)
       axios({
         method : 'post',
-        url : 'http://localhost:3000/api/users/signinfb',
+        url : 'http://server.purge-works.com/api/users/signinfb',
         headers:{
           fb_token : response.authResponse.accessToken
         }
@@ -37,7 +37,7 @@ function statusChangeCallback(response){
         localStorage.setItem('token',resLogin.data.data.token)
         localStorage.setItem('userId',resLogin.data.data._id)
         location.reload();
-        
+
       })
       .catch(function (error) {
         console.log(error);
@@ -61,6 +61,3 @@ function logout() {
     console.log('user log out fb')
   });
 }
-
-
-
