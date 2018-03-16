@@ -10,7 +10,6 @@
   <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
 
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.5.2/animate.min.css">
-  <link rel="stylesheet" href="style.css" type="text/css">
   <!-- or -->
   <!-- <link rel="stylesheet"
   href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css"> -->
@@ -86,12 +85,12 @@
                     </a>
                 </p>
                 <p class="control">
-                  <a class="button is-link"  @click="signupButtonClick">
+                  <a class="button is-link" @click="signupButtonClick">
                       <span>Sign Up</span>
                     </a>
                 </p>
                 <p class="control">
-                  <a class="button is-link"  @click="uploadButtonClik">
+                  <a class="button is-link" @click="uploadButtonClik">
                       <span>Upload</span>
                     </a>
                 </p>
@@ -225,7 +224,7 @@
           <p class="control">
             <div class="fb-login-button" data-max-rows="1" data-size="medium" data-button-type="login_with" data-show-faces="false" data-auto-logout-link="true" data-use-continue-as="false" scope="public_profile,email" onlogin="checkLoginState()"></div>
           </p>
-        <!-- </div> -->
+          <!-- </div> -->
           <hr>
 
           <p>Login with your email address</p><br>
@@ -288,7 +287,7 @@
         <footer class="modal-card-foot">
           <button @click="closeSignupModal" class="button">Login</button>
 
-          <button @click="closeLoginModal" class="button">Cancel</button>
+          <button @click="closeSignupModal" class="button">Cancel</button>
         </footer>
 
       </div>
@@ -299,36 +298,41 @@
     <div id="modal-upload" class="modal animated fadeIn" :class="modalUploadActive">
       <div class="modal-background"></div>
       <div class="modal-card">
+
         <header class="modal-card-head">
           <p class="modal-card-title">Login</p>
-          <button class="delete" aria-label="close" @click="closeSignupModal"></button>
+          <button class="delete" aria-label="close" @click="closeUploadModal"></button>
         </header>
+
         <section class="modal-card-body">
-          <form class="box" method="post" action="" enctype="multipart/form-data">
-  <div class="box__input">
-    <input class="box__file" type="file" name="files[]" id="file" data-multiple-caption="{count} files selected" multiple />
-    <label for="file"><strong>Choose a file</strong><span class="box__dragndrop"> or drag it here</span>.</label>
-    <button class="box__button" type="submit">Upload</button>
-  </div>
-  <div class="box__uploading">Uploading&hellip;</div>
-  <div class="box__success">Done!</div>
-  <div class="box__error">Error! <span></span>.</div>
-</form>
+          <div>
+        	<label for="fileselect">Files to upload:</label>
+        	<input type="file" id="fileselect" name="fileselect[]" multiple="multiple" />
+        	<div id="filedrag">or drop files here</div>
+        </div>
+
+        <div id="submitbutton">
+        	<button type="submit">Upload Files</button>
+        </div>
+
+        <div id="messages">
+        <p>Status Messages</p>
+        </div>
 
 
         </section>
         <footer class="modal-card-foot">
           <button @click="closeSignupModal" class="button">Login</button>
 
-          <button @click="closeLoginModal" class="button">Cancel</button>
+          <button @click="closeUploadModal" class="button">Cancel</button>
         </footer>
 
       </div>
     </div>
 
-  </section>
+    </section>
 
-  <script src="./loginFb.js"></script>
+    <script src="./loginFb.js"></script>
 
 
 
@@ -344,6 +348,8 @@
   <script src="https://cdn.jsdelivr.net/npm/vue@2.5.15/dist/vue.js"></script>
   <script type="text/javascript" src="/node_modules/bulma-extensions/bulma-carousel/dist/bulma-carousel.min.js"></script>
   <script src="./script.js" charset="utf-8"></script>
+  <script src="./filedrag.js" charset="utf-8"></script>
+
 </body>
 
 </html>
