@@ -40,6 +40,7 @@ Vue.component('upload', {
   {
     closeUploadModal: function() {
       this.$emit('closeuploadmodal');
-    }
+    },
+
   }
 })

@@ -8,14 +8,6 @@ Vue.component ('signup',{
           <button class="delete" aria-label="close" @click="closeSignupModal"></button>
         </header>
         <section class="modal-card-body">
-          <p>Connect with your social media</p><br>
-          <p class="control">
-            <a class="button is-link" href="https://github.com/jgthms/bulma/archive/0.5.1.zip">
-                <span>Facebook</span>
-              </a>
-          </p>
-          <hr>
-
           <p>Create New Account with your email address</p><br>
           <div class="field">
             <label class="label">Username</label>
@@ -44,7 +36,7 @@ Vue.component ('signup',{
               <input class="input" type="text" placeholder="Your name.." name="name" v-model="objuser.name">
             </div>
           </div>
-    
+
           <div class="field">
             <label class="label">Gender</label>
             <div class="control">
@@ -58,7 +50,7 @@ Vue.component ('signup',{
               </div>
             </div>
           </div>
-    
+
           <div class="field">
             <label class="label">Phone Number</label>
             <div class="control">

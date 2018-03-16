@@ -15,8 +15,8 @@
 
 <body>
   <div id="app">
-    <hero @loginbuttonclick="loginButtonClick" @signupbuttonclick="signupButtonClick" @uploadbuttonclick="uploadButtonClick"></hero>
-    <navbar :isvisible="navbarIsVisible" @loginbuttonclick="loginButtonClick" @signupbuttonclick="signupButtonClick" @uploadbuttonclick="uploadButtonClick"></navbar>
+    <hero :userid="userId" @loginbuttonclick="loginButtonClick" @signupbuttonclick="signupButtonClick" @uploadbuttonclick="uploadButtonClick"></hero>
+    <navbar :userid="userId" :isvisible="navbarIsVisible" @loginbuttonclick="loginButtonClick" @signupbuttonclick="signupButtonClick" @uploadbuttonclick="uploadButtonClick"></navbar>
 
     <section class="section has-navbar-fixed-top">
       <div id="main-container" class="container">
@@ -71,18 +71,26 @@
 
         <section class="modal-card-body">
           <div>
-          <label for="fileselect">Files to upload:</label>
-          <input @change="fileSelectHandler" type="file" id="fileselect" name="fileselect[]" multiple="multiple" />
-          <div id="filedrag" @dragover="fileDragHover" @dragleave="fileDragHover" >or drop files here</div>
+          <!-- <label for="fileselect">Files to upload:</label>
+          <input @change="fileSelectHandler" type="file" id="fileselect" name="fileselect[]" multiple="multiple" /> -->
+
+          <div id="filedrag" @dragover="fileDragHover" @dragleave="fileDragHover" >Drop image here</div>
+          <div id="file-name">
+            <p>File name: {{filename}}</p>
+          </div>
+          <div class="field">
+            <label class="label">Caption:</label>
+            <div class="control">
+              <input class="input" type="text" placeholder="Your caption here.." >
+            </div>
+          </div>
         </div>
 
         <!-- <div id="submitbutton">
           <button type="submit">Upload Files</button>
         </div> -->
 
-        <div id="messages">
-        <p>Status Messages</p>
-        </div>
+
 
 
         </section>
@@ -109,7 +117,7 @@
   <script src="component.navbar.js" charset="utf-8"></script>
   <script src="component.modal.login.js" charset="utf-8"></script>
   <script src="component.signup.js" charset="utf-8"></script>
-  
+
   <script src="./loginFb.js"></script>
   <script src="./filedrag.js" charset="utf-8"></script>
   <script src="./script.js" charset="utf-8"></script>
