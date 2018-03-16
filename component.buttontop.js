@@ -5,8 +5,10 @@ Vue.component('button-top', {
     </button>
   `,
   props:['isVisible'],
-  data: {
+  data: function() {
+    return {
 
+    }
   },
   methods: {
     backToTop: function(){
