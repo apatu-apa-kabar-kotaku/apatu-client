@@ -18,20 +18,20 @@ Vue.component('hero', {
           <div id="navbarMenuHeroA" class="navbar-menu">
             <div class="navbar-end">
               <div class="navbar-item has-dropdown is-hoverable">
-                <a class="navbar-link" href="/documentation/overview/start/">
+                <a class="navbar-link">
                     Section
                   </a>
                 <div id='dropdown-hero' class="navbar-dropdown is-boxed">
-                  <a id='dropdown-item-hero' class="navbar-item" href="/documentation/overview/start/">
+                  <a id='dropdown-item-hero' class="navbar-item">
                       Traffic
                     </a>
-                  <a id='dropdown-item-hero' class="navbar-item" href="https://bulma.io/documentation/modifiers/syntax/">
+                  <a id='dropdown-item-hero' class="navbar-item">
                       Natural Disaster
                     </a>
-                  <a id='dropdown-item-hero' class="navbar-item" href="https://bulma.io/documentation/columns/basics/">
+                  <a id='dropdown-item-hero' class="navbar-item">
                       Public Facilities
                     </a>
-                  <a id='dropdown-item-hero' class="navbar-item" href="https://bulma.io/documentation/layout/container/">
+                  <a id='dropdown-item-hero' class="navbar-item">
                       Criminalities
                     </a>
 

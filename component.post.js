@@ -9,10 +9,6 @@ Vue.component('post', {
       <div class="card-content">
         <div class="content">
           <h4>{{post.title}}</h4>
-          <a>@bulmaio</a>.
-          <a href="#">#css</a> <a href="#">#responsive</a>
-          <br>
-          <time datetime="2016-1-1">11:09 PM - 1 Jan 2016</time>
         </div>
         <button class="button is-outlined">
             <span class="icon">
